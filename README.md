@@ -43,6 +43,12 @@ MONITOR MODE
 		>sudo iwconfig wlan0 mode managed  
 		>sudo ifconfig wlan0 up 
     
+PANDAS Installation
+------------
+It can also be installed by using pip:
+
+    $ sudo pip3 install sympy
+    
 DISTANCE CALCULATION
 ------------
   
