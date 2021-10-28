@@ -3,9 +3,9 @@ WiFi Devices Positioning System with Triangulation Algorithm. Three steps are ne
 
 # Dependencies
   1) Python Scapy Lib
-  2) Monitor Mode WiFi Card
-  3) Python Pandas Lib (For Printing the Output)
-  4) Python SymPy Lib (For Calculation of Triangulation Algorithm)
+  2) Python Pandas Lib (For Printing the Output)
+  3) Python SymPy Lib (For Calculation of Triangulation Algorithm)
+  4) Monitor Mode WiFi Card
   5) Intersensor Communication Method
 
 SCAPY Installation
@@ -25,7 +25,13 @@ PANDAS Installation
 It can also be installed by using pip:
 
     $ pip3 install pandas
+    
+SymPy Installation
+------------
+It can also be installed by using pip:
 
+    $ sudo pip3 install sympy
+    
 MONITOR MODE
 ------------
 	1) Let's start by checking for the interface name:  
@@ -43,12 +49,8 @@ MONITOR MODE
 		>sudo iwconfig wlan0 mode managed  
 		>sudo ifconfig wlan0 up 
     
-PANDAS Installation
-------------
-It can also be installed by using pip:
+# WiFi-Devices-Distance-Calculator
 
-    $ sudo pip3 install sympy
-    
 DISTANCE CALCULATION
 ------------
   
@@ -77,3 +79,17 @@ If distance is to be calculated, the formula needs to be reversed as follows:
 1) f is the frequency of WiFi in MHz
 2) dBm is the indicated power level (RSSI Signal Strength)
 3) c is our FSPL constant (27.55)
+
+
+Writing data into txt file
+------------
+
+In order to process data such as BSSID and distance, which will be needed when calculating the locations of WiFi devices, the sniffing data must be saved in an output file. When the wifi_scanner.py scripts are run, they start writing the scanner's sniffing data into an output file by sorting it. When sniffing is complete, the script saves this output file and closes it. Then the sniffed data in the txt file is assigned to a new list and compared and sorted within itself. After the distance data obtained from the txt file sorted by BSSIDs are transferred to another list, the distances returned by the devices are counted in this new list. After counting, the highest distance number returned by a BSSID is considered the distance of that device for that sniff output file and this distance is sent to the new txt file.
+
+<p align="center">
+
+  <img src="https://user-images.githubusercontent.com/56837694/139214513-8117b8b6-edb0-4970-80ce-62f03b8b39f6.png">
+
+</p>
+
+# WiFi-Devices-Positioning-System
